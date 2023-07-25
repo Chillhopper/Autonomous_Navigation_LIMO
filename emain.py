@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+"""
+@file       emain.py
+@author     Team 3 (Muhammad Fazrey Bin Zainal, Kaushik Thirumavalavan, Akmal Rusyaidi Bin Muhammad Tajwid,
+            Muhammad Zulhilman Bin Mohd Shaini, Chang Keng Jethro, Janaishwaran)
+@course     Robotics Systems Engineering, Singapore Institute of Technology
+@module     SEP
+@date       24/07/2023
+@brief      Main source code for the controlling the navigation of the LIMO implmenting ROS concepts.
+"""
+
 import rospy
 import actionlib
 from geometry_msgs.msg import Twist
@@ -15,7 +25,7 @@ class GoalStatus(Enum):
     ABORTED = 4
 
 # Coord Base
-# Coord Format: x,y,z(position) xyzw(orientation) 
+# Coord Format: x,y,z (position) xyzw (orientation) 
 coords = [[0.186934063707, 0.000327325188509, 0.0, 0.0, 0.0, -0.1485751123, 0.988901125495], #index 0 ORGIN 
           [-0.111057405966, -1.27893318731, 0.0, 0.0, 0.0, -0.704684159816, 0.709521130696], #index 1 SENTOSA
           [1.22589575051, -1.3442649677, 0.0, 0.0, 0.0, 0.500792662841, 0.865567275747], #index 2 WOT
@@ -32,16 +42,15 @@ def active_cb(extra=0):
 
 # the callback for monitoring the progress of the navigation goal. It checks for the presence of a message on the "/stopButton" topic, 
 # which presumably signals the user wants to stop the current navigation goal. 
-# If the message with data 10 is received, it calls the stop() function.
+# if the message with data 10 is received, it calls the stop() function.
 def feedback_cb(feedback):
     print("Press 's' to stop")
     myval = rospy.wait_for_message('/stopButton', Int8)
     if myval.data == 10:
-        print(myval)
         stop()
 
 # the callback called when the navigation goal reaches a final state (either succeeded, aborted, or canceled). 
-# It logs information based on the status received.
+# it logs information based on the status received.
 def done_cb(status, result):
     status_enum = GoalStatus(status)
     if status_enum == GoalStatus.SUCCEEDED:
@@ -87,19 +96,19 @@ def sui(coordList):
     goal.target_pose.pose.orientation.z = coordList[5]
     goal.target_pose.pose.orientation.w = coordList[6]
 
-    send_goal(navclient, goal)
-    wait_for_result(navclient)
+    send_goal(navclient, goal) # sends the goal by calling the function send_goal and passing the navclient object and goal object
+    wait_for_result(navclient) # calls the wait_for_result function to wait for the movement outcome
 
 # waits for a message on the topic "/button" (a topic that presumably receives button presses or commands). 
-# Once a message is received, it returns the data from the message (the index of the area to navigate to) and stores it in the command variable.
+# once a message is received, it returns the data from the message (the index of the area to navigate to) and stores it in the command variable.
 def gui_listener():
     message = rospy.wait_for_message('/button', Int8)
     return_val = message.data
     return return_val
 
 if __name__ == "__main__":
-    rospy.init_node('goal_pose') #initializes the ROS node with the name "goal_pose"
-    navclient = actionlib.SimpleActionClient('move_base', MoveBaseAction) # The action server implements the MoveBaseAction interface, which allows the robot to perform navigation tasks.
+    rospy.init_node('goal_pose') # initializes the ROS node with the name "goal_pose"
+    navclient = actionlib.SimpleActionClient('move_base', MoveBaseAction) # create a client to interact with the 'move_base' action server for navigation tasks.
     while not rospy.is_shutdown():
         print("Select zone.....")
         command = gui_listener()

@@ -1,5 +1,16 @@
 #!/usr/bin/env python2
 
+"""
+@file       egui.py
+@author     Team 3 (Muhammad Fazrey Bin Zainal, Kaushik Thirumavalavan, Akmal Rusyaidi Bin Muhammad Tajwid,
+            Muhammad Zulhilman Bin Mohd Shaini, Chang Keng Jethro, Janaishwaran)
+@course     Robotics Systems Engineering, Singapore Institute of Technology
+@module     SEP
+@date       24/07/2023
+@brief      Graphic User Interface (GUI) using Tkinter for ease of selection for the desired locations throughout the arena.
+"""
+
+
 import Tkinter as tk
 import numpy as np
 import rospy
@@ -21,7 +32,7 @@ window = tk.Tk()
 window.title("Tourist Attractions")
 
 # IMPORTANT DEFS
-# Initialize ROS node and set it to be anonymous
+# Initialize ROS node and set it to be anonymous, declare the publishers pub and stop_pub
 pub = rospy.Publisher('/button', Int8, queue_size=1)  # Publisher for '/button' topic
 stop_pub = rospy.Publisher('/stopButton', Int8, queue_size=1)  # Publisher for '/stopButton' topic
 
