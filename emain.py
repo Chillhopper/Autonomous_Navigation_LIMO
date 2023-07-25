@@ -15,7 +15,7 @@ class GoalStatus(Enum):
     ABORTED = 4
 
 # Coord Base
-#x,y,z(coords) xyzw(pos) 
+# Coord Format: x,y,z(position) xyzw(orientation) 
 coords = [[0.186934063707, 0.000327325188509, 0.0, 0.0, 0.0, -0.1485751123, 0.988901125495], #index 0 ORGIN 
           [-0.111057405966, -1.27893318731, 0.0, 0.0, 0.0, -0.704684159816, 0.709521130696], #index 1 SENTOSA
           [1.22589575051, -1.3442649677, 0.0, 0.0, 0.0, 0.500792662841, 0.865567275747], #index 2 WOT
@@ -99,7 +99,7 @@ def gui_listener():
 
 if __name__ == "__main__":
     rospy.init_node('goal_pose') #initializes the ROS node with the name "goal_pose"
-    navclient = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+    navclient = actionlib.SimpleActionClient('move_base', MoveBaseAction) # The action server implements the MoveBaseAction interface, which allows the robot to perform navigation tasks.
     while not rospy.is_shutdown():
         print("Select zone.....")
         command = gui_listener()
