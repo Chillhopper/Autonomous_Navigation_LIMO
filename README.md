@@ -18,7 +18,7 @@ To run the `arl.sh` script, follow these steps:
      ```bash
      ./arl.sh
      ```
-   OTHERWISE you may choose to execute each command manually which will sequentially start all the necessary Gazebo and program setup commands.
+   **OTHERWISE** you may choose to execute each command manually which will sequentially start all the necessary Gazebo and program setup commands.
 
 2. **Manual Command Execution**:
    Alternatively, you can manually execute the following commands:
