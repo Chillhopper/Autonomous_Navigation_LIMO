@@ -8,8 +8,43 @@ This repository contains the LIMO navigation files for autonomous navigation. It
 - ROS
 - TurtleBOT3 Gazebo
 
-## Usage
-enter the directory of `arl.sh` and use the command line to run it via ```./arl.sh```.This would run all the Gazebo start up commands and also the programme set up sequentially.
+## Usage Instructions
+
+To run the `arl.sh` script, follow these steps:
+
+1. **Run `arl.sh` Script (RECOMMENDED)**:
+   - Navigate to the directory containing `arl.sh`.
+   - Execute the script using the command:
+     ```bash
+     ./arl.sh
+     ```
+   OTHERWISE you may choose to execute each command manually which will sequentially start all the necessary Gazebo and program setup commands.
+
+2. **Manual Command Execution**:
+   Alternatively, you can manually execute the following commands:
+   - Start LIMO:
+     ```bash
+     roslaunch limo_bringup limo_start.launch pub_odom_tf:=false
+     ```
+   - Launch Navigation:
+     ```bash
+     roslaunch limo_bringup limo_navigation_diff.launch
+     ```
+   - Run `emain.py`:
+     ```bash
+     rosrun arena emain.py
+     ```
+   - Execute `egui.py`:
+     ```bash
+     rosrun arena egui.py
+     ```
+   - Start `poseHub.py`:
+     ```bash
+     rosrun poseHub.py
+     ```
+
+Choose the method that best fits your workflow. The script provides a convenient one-step option, while manual execution offers more control over each process.
+
 
 ## Contact
 For any queries, you can reach out to ```kaushikt2000@gmail.com``` .
