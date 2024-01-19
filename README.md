@@ -14,10 +14,6 @@ enter the directory of `arl.sh` and use the command line to run it via ```./arl.
 ## Contact
 For any queries, you can reach out to ```kaushikt2000@gmail.com``` .
 
-## Acknowledgments
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc.
 
 ![LimoNav](https://github.com/Chillhopper/LIMO_NAV_Archive/assets/68851163/1484c07d-5e5a-4be7-923a-6b488c7bb5df)
 
