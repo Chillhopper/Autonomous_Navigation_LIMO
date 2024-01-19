@@ -1,31 +1,18 @@
 # LIMO_NAV Archive
 
 ## Introduction
-This repository contains the LIMO navigation files. LIMO (acronym for [specific meaning]) is a [brief explanation of what LIMO is]. The purpose of this archive is to [state the purpose].
-
-## Getting Started
-To use this repository, clone it using `git clone`, and then [provide additional steps if necessary].
+This repository contains the LIMO navigation files for autonomous navigation. It uses the ROS Navigation stack to navigate autonomously around vehicles using the ```dijkstra``` algorithm for mapping the area to perform navigation around obstacles.
 
 ### Prerequisites
-- Python (specify version)
-- Lua (specify version)
-- Additional dependencies or environment setup details
+- Python 2.X
+- ROS
+- TurtleBOT3 Gazebo
 
 ## Usage
-Explain how to use the files in the repository. Provide examples if necessary.
-
-## Contributing
-Contributions are welcome! Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Authors and Acknowledgment
-- **Chillhopper** - *Initial work* - [GitHub Profile](https://github.com/Chillhopper)
-- Additional contributors...
-
-## License
-This project is licensed under the [specify license type] License - see the `LICENSE.md` file for details.
+enter the directory of `arl.sh` and use the command line to run it via ```./arl.sh```.This would run all the Gazebo start up commands and also the programme set up sequentially.
 
 ## Contact
-For any queries, you can reach out to [provide contact information].
+For any queries, you can reach out to ```kaushikt2000@gmail.com``` .
 
 ## Acknowledgments
 - Hat tip to anyone whose code was used
@@ -33,5 +20,4 @@ For any queries, you can reach out to [provide contact information].
 - etc.
 
 ![LimoNav](https://github.com/Chillhopper/LIMO_NAV_Archive/assets/68851163/1484c07d-5e5a-4be7-923a-6b488c7bb5df)
-![LimoPic](https://github.com/Chillhopper/LIMO_NAV_Archive/assets/68851163/5eced4bc-96dd-4096-bde4-b811be78e9e7)
 
