@@ -2,6 +2,12 @@
 ## Introduction
 This repository contains the LIMO navigation files for autonomous navigation. It uses the ROS Navigation stack to navigate autonomously around vehicles using the ```dijkstra``` algorithm for mapping the area to perform navigation around obstacles.
 
+
+
+Uploading project3Vid.mp4.mov…
+
+
+
 ### Prerequisites
 - Python 2.X
 - ROS
